@@ -482,7 +482,6 @@ func (b *bot) handleClose(peerID int64, id string) {
 		b.sendMessage(peerID, fmt.Sprintf("Session %s not found", id), mainMenuKeyboard())
 		return
 	}
-	log.Printf("%s", runtime.GOOS)
 	if runtime.GOOS == "windows" {
 		args := []string{"/T", "/F", "/PID", strconv.Itoa(sess.cmd.Process.Pid)}
 		exec.Command("TASKKILL", args...).Start()
